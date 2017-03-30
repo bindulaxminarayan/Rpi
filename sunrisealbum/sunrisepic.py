@@ -30,8 +30,7 @@ def getSunRiseTime(lat, lng):
     payload = {'lat': lat, 'lng': lng, 'date': getNextDate()}
     response = requests.get(url, params=payload)
     t = json.loads(response.text)
-    #return t['results']['sunrise'][:-6]
-    return "2017-03-31T20:57:00"
+    return t['results']['sunrise'][:-6]
 
 def convert_to_est(stime):
     '''
@@ -71,7 +70,7 @@ def capture():
         camera.stop_preview()
 
 
-schedule.every().day.at("16:56").do(scheduleSunRiseTime)
+schedule.every().day.at("01:00").do(scheduleSunRiseTime)
 
 while True:
     schedule.run_pending()
