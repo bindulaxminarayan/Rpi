@@ -12,7 +12,7 @@ import logging
 from datetime import datetime, timedelta
 import picamera
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level = logging.DEBUG)
 
 def getNextDate():
     '''
@@ -28,7 +28,7 @@ def getSunRiseTime(lat, lng):
     '''
     url = "http://api.sunrise-sunset.org/json"
     payload = {'lat': lat, 'lng': lng, 'date': getNextDate()}
-    response = requests.get(url, params=payload)
+    response = requests.get(url, params = payload)
     t = json.loads(response.text)
     return t['results']['sunrise'][:-6]
 
